@@ -1,6 +1,6 @@
 # Claude Skills for QA
 
-Seven reusable [Claude skills](https://docs.claude.com) that automate the repetitive, judgement-heavy parts of QA and SDET work: turning a PRD into test cases, writing Playwright/Appium/REST Assured automation, auditing analytics tracking, debugging flaky tests, and testing AI features.
+Eight reusable [Claude skills](https://docs.claude.com) that automate the repetitive, judgement-heavy parts of QA and SDET work: turning a PRD into test cases, writing Playwright/Appium/REST Assured automation, auditing analytics tracking, debugging flaky tests, and testing AI features.
 
 ## What are Claude skills?
 
@@ -17,6 +17,7 @@ A skill is a folder with a `SKILL.md` file (a short description plus step-by-ste
 | [`analytics-event-auditor`](analytics-event-auditor) | Checks captured events (HAR, exports) against a tracking spec, including naming, types, duplicates and PII leaks | You need to verify analytics tracking for a feature |
 | [`flaky-test-debugger`](flaky-test-debugger) | Classifies the root cause of flaky tests from logs, traces and result XML, and proposes a real fix | A test fails intermittently, in CI only, or in parallel only |
 | [`ai-feature-testing`](ai-feature-testing) | Property-based test design for LLM, ranking, media and agent features | You must QA a feature whose output is not deterministic |
+| [`universal-project-intelligence-sdet`](universal-project-intelligence-sdet) | Analyzes any repo or monorepo into evidence-based documentation, then assists with testability, test design, defect investigation and regression planning | You are onboarding to an unfamiliar project or need an SDET-level view of a codebase |
 
 ## Example prompts
 
