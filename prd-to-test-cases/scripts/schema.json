@@ -1,0 +1,45 @@
+{
+  "$comment": "Input for build_workbook.py. Only 'test_cases' is required; others are recommended.",
+  "meta": {
+    "feature": "Cart coupons",
+    "version": "PRD v1.3 / Figma 2024-06-10",
+    "author": "QA",
+    "sources": ["PRD: Cart Coupons v1.3", "Figma: Cart - Coupons (frames 12-18)"],
+    "platforms": ["iOS", "Android", "mWeb", "Web"],
+    "notes": "Free text shown on the Summary sheet"
+  },
+  "requirements": [
+    {"id": "REQ-01", "source": "PRD §3.1", "text": "User can apply one coupon code on the cart page", "implicit": false}
+  ],
+  "findings": [
+    {
+      "id": "F-01",
+      "type": "Contradiction | PRD-Design mismatch | Gap | Ambiguity | Risk",
+      "severity": "High | Medium | Low",
+      "source": "PRD §3.2 vs PRD §6 table",
+      "description": "Max coupon length is 10 in §3.2 but 12 in §6",
+      "question": "Is the max coupon code length 10 or 12?",
+      "owner": "PM",
+      "impacted_cases": ["TC-004"],
+      "status": "Open"
+    }
+  ],
+  "test_cases": [
+    {
+      "id": "TC-001",
+      "module": "Coupon",
+      "title": "Apply valid coupon on eligible cart shows discount and updated total",
+      "req_ids": ["REQ-01"],
+      "type": "Functional | Negative | Boundary | State | UI | Analytics | Accessibility | Regression | Platform | Experiment",
+      "priority": "P0 | P1 | P2 | P3",
+      "platforms": ["iOS", "Android", "mWeb", "Web"],
+      "preconditions": "Logged in; cart total $24.99",
+      "test_data": "Coupon: SAVE500",
+      "steps": ["Open cart", "Enter SAVE500 in coupon field", "Tap Apply"],
+      "expected": "Discount line '-$5.00' shown; total $19.99; field shows applied state with Remove",
+      "automation": "Yes | No | Later (+ reason)",
+      "blocked_by": ["F-01"],
+      "notes": ""
+    }
+  ]
+}

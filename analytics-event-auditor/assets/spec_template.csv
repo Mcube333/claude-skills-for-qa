@@ -1,0 +1,8 @@
+event,trigger,platforms,attribute,type,required,allowed_values,notes
+cart_viewed,Cart page/screen fully loaded,ios|android|web,cart_value,number,yes,,Order total incl. discounts
+cart_viewed,Cart page/screen fully loaded,ios|android|web,item_count,int,yes,,
+coupon_applied,Coupon apply API success,ios|android|web,coupon_code,string,yes,,
+coupon_applied,Coupon apply API success,ios|android|web,discount,number,yes,,
+coupon_applied,Coupon apply API success,ios|android|web,discount_type,string,yes,flat|percent,
+coupon_failed,Coupon apply API failure,ios|android|web,reason,string,yes,invalid|expired|min_value,
+checkout_started,Tap Proceed on cart,ios|android|web,,,,,Event-only row (no attributes)
