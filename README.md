@@ -1,6 +1,6 @@
 # Claude Skills for QA
 
-Eight reusable [Claude skills](https://docs.claude.com) that automate the repetitive, judgement-heavy parts of QA and SDET work: turning a PRD into test cases, writing Playwright/Appium/REST Assured automation, auditing analytics tracking, debugging flaky tests, and testing AI features.
+Seventeen reusable [Claude skills](https://docs.claude.com) that automate the repetitive, judgement-heavy parts of QA and SDET work: turning a PRD into test cases, writing Playwright/Appium/REST Assured automation, auditing analytics tracking, debugging flaky tests, and testing AI features.
 
 ## What are Claude skills?
 
@@ -18,6 +18,15 @@ A skill is a folder with a `SKILL.md` file (a short description plus step-by-ste
 | [`flaky-test-debugger`](flaky-test-debugger) | Classifies the root cause of flaky tests from logs, traces and result XML, and proposes a real fix | A test fails intermittently, in CI only, or in parallel only |
 | [`ai-feature-testing`](ai-feature-testing) | Property-based test design for LLM, ranking, media and agent features | You must QA a feature whose output is not deterministic |
 | [`universal-project-intelligence-sdet`](universal-project-intelligence-sdet) | Analyzes any repo or monorepo into evidence-based documentation, then assists with testability, test design, defect investigation and regression planning | You are onboarding to an unfamiliar project or need an SDET-level view of a codebase |
+| [`bug-report-writer`](bug-report-writer) | Turns rough notes, screenshots, recordings or failing tests into ready-to-file bug reports with steps, expected vs actual and severity | You have raw findings and need a clean Jira/Linear/GitHub bug |
+| [`cross-platform-parity-checker`](cross-platform-parity-checker) | Compares a screen or flow across iOS, Android, web, Figma and the PRD and lists every mismatch with severity | You need to confirm platforms and design agree |
+| [`test-execution-reporter`](test-execution-reporter) | Turns raw results (sheets, Allure, TestNG/JUnit XML, Playwright, CI output) into a stakeholder report and a release go/no-go | You must summarise a test run or give QA sign-off |
+| [`regression-scope-planner`](regression-scope-planner) | Picks what to regression-test from a PR diff, commit log or ticket list, based on risk instead of "run everything" | You need a risk-based regression scope for a release or hotfix |
+| [`ab-experiment-qa`](ab-experiment-qa) | Builds the variant x platform x user-state test matrix and checks bucketing, isolation and per-variant analytics | You are testing an A/B experiment or feature-flag rollout |
+| [`production-issue-rca`](production-issue-rca) | Structured root-cause analysis for production tickets: timeline, ranked hypotheses, evidence and resolution | A ticket says data or payments are wrong and you need the cause |
+| [`sql-test-data-finder`](sql-test-data-finder) | Writes safe, read-only SQL to find test accounts and records matching a plain-English scenario, plus data-integrity checks | You need a test user or want to verify data after a migration |
+| [`synthetic-test-data-generator`](synthetic-test-data-generator) | Generates realistic but fake users, orders and other entities as CSV, JSON, SQL seed or code fixtures | You need test data without touching real customer data |
+| [`api-contract-diff`](api-contract-diff) | Compares two API contract versions (OpenAPI, JSON samples, HAR) and classifies changes as breaking, risky or safe | An API changed and you need to know what breaks clients |
 
 ## Example prompts
 
@@ -28,6 +37,15 @@ A skill is a folder with a `SKILL.md` file (a short description plus step-by-ste
 - **analytics-event-auditor**: "Audit this HAR capture against tracking_spec.csv and flag missing events, wrong types and PII."
 - **flaky-test-debugger**: "This test passes locally but fails in CI about 1 run in 10. Here are the stack trace, trace.zip and Surefire results. Why?"
 - **ai-feature-testing**: "We are shipping an AI support chatbot. Design test cases and assertions, and tell me how to test it when the answers differ every run."
+- **bug-report-writer**: "Turn these rough notes and the attached screenshot into a Jira bug with steps, expected vs actual and a severity."
+- **cross-platform-parity-checker**: "Compare the order summary screen on iOS, Android and web against the Figma frame and list every mismatch."
+- **test-execution-reporter**: "Here is the Allure/TestNG report from last night's run. Write a sign-off summary and a go/no-go for the release."
+- **regression-scope-planner**: "Here is the PR diff for the checkout hotfix. What should I regression-test, and what can I safely skip?"
+- **ab-experiment-qa**: "Write a test plan for this A/B experiment on the home banner across Android, iOS and web, including bucketing and analytics."
+- **production-issue-rca**: "A customer says they paid but the order still shows pending. Here are the ticket and logs. Find the root cause."
+- **sql-test-data-finder**: "Write a read-only query to find a user with an overdue renewal and an active cart in staging."
+- **synthetic-test-data-generator**: "Generate 50 fake users with Indian addresses and phone numbers as CSV, including some invalid edge cases."
+- **api-contract-diff**: "Compare the old and new booking API OpenAPI specs and tell me which changes will break existing clients."
 
 ## Install a skill
 
