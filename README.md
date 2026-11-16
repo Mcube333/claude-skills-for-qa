@@ -46,6 +46,7 @@ A skill is a folder with a `SKILL.md` file (a short description plus step-by-ste
 - **sql-test-data-finder**: "Write a read-only query to find a user with an overdue renewal and an active cart in staging."
 - **synthetic-test-data-generator**: "Generate 50 fake users with Indian addresses and phone numbers as CSV, including some invalid edge cases."
 - **api-contract-diff**: "Compare the old and new booking API OpenAPI specs and tell me which changes will break existing clients."
+- **universal-project-intelligence-sdet**: "I just joined this repo. Map the architecture and business flows, assess testability, and propose a regression plan."
 
 ## Install a skill
 
