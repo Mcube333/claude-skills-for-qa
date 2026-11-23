@@ -28,6 +28,71 @@ A skill is a folder with a `SKILL.md` file (a short description plus step-by-ste
 | [`synthetic-test-data-generator`](synthetic-test-data-generator) | Generates realistic but fake users, orders and other entities as CSV, JSON, SQL seed or code fixtures | You need test data without touching real customer data |
 | [`api-contract-diff`](api-contract-diff) | Compares two API contract versions (OpenAPI, JSON samples, HAR) and classifies changes as breaking, risky or safe | An API changed and you need to know what breaks clients |
 
+## Install
+
+These skills follow the open **Agent Skills** standard (a folder with a `SKILL.md` plus optional
+`references/` and `scripts/`), so they work in Claude and in other AI coding agents.
+
+### Quick install (any supported agent)
+
+Using the skills CLI (detects the agents you have installed and asks which skills to add):
+
+```bash
+npx skills add Mcube333/claude-skills-for-qa
+```
+
+Using the GitHub CLI:
+
+```bash
+gh skill install Mcube333/claude-skills-for-qa                        # pick skills interactively
+gh skill install Mcube333/claude-skills-for-qa --all --agent codex   # all skills, one agent
+```
+
+Supported `--agent` values include `claude-code`, `codex`, `cursor`, `github-copilot`,
+`gemini-cli` and `antigravity`.
+
+### Manual install
+
+Clone the repo, then copy the skill folders you want (keep each folder whole):
+
+```bash
+git clone https://github.com/Mcube333/claude-skills-for-qa.git
+```
+
+| Agent | Project folder | Example |
+|---|---|---|
+| Claude Code | `.claude/skills/` | `cp -R claude-skills-for-qa/bug-report-writer .claude/skills/` |
+| OpenAI Codex CLI | `.codex/skills/` | `cp -R claude-skills-for-qa/bug-report-writer .codex/skills/` |
+| Cursor | `.cursor/skills/` | `cp -R claude-skills-for-qa/bug-report-writer .cursor/skills/` |
+| Gemini CLI | `.gemini/skills/` | `cp -R claude-skills-for-qa/bug-report-writer .gemini/skills/` |
+| Google Antigravity | `.agents/skills/` | `cp -R claude-skills-for-qa/bug-report-writer .agents/skills/` |
+| GitHub Copilot, Amp, Cline, OpenCode | `.agents/skills/` (shared) | same as above |
+
+To copy every skill at once (Linux/macOS, Git Bash on Windows):
+
+```bash
+mkdir -p .agents/skills
+for d in claude-skills-for-qa/*/; do [ -f "$d/SKILL.md" ] && cp -R "$d" .agents/skills/; done
+```
+
+### Claude.ai (web and desktop)
+
+Settings > Capabilities > Skills > upload a zipped skill folder (or a `.skill` file).
+
+### ChatGPT and other chat apps
+
+Chat apps without skill support can still use them: paste a skill's `SKILL.md` into a
+Custom GPT's or Project's instructions and upload its `references/` files as knowledge.
+The skill won't trigger automatically there; ask for it by name.
+
+### Notes
+
+- Skills load on demand: the agent reads only the short description until a request matches.
+- `synthetic-test-data-generator` and `api-contract-diff` include Python scripts
+  (standard library only). They need an agent that can run code; in chat-only apps the
+  model follows the written method instead.
+- Some features can differ slightly between agents; the `SKILL.md` instructions themselves are tool-neutral.
+
 ## Example prompts
 
 - **prd-to-test-cases**: "Here is the PRD for our coupon feature. Find contradictions and gaps, then write prioritized test cases as an Excel workbook."
