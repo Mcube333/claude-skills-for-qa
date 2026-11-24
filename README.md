@@ -1,6 +1,6 @@
 # Claude Skills for QA
 
-Seventeen reusable [Claude skills](https://docs.claude.com) that automate the repetitive, judgement-heavy parts of QA and SDET work: turning a PRD into test cases, writing Playwright/Appium/REST Assured automation, auditing analytics tracking, debugging flaky tests, and testing AI features.
+Eighteen reusable [Claude skills](https://docs.claude.com) that automate the repetitive, judgement-heavy parts of QA and SDET work: turning a PRD into test cases, writing Playwright/Appium/REST Assured automation, auditing analytics tracking, debugging flaky tests, and testing AI features.
 
 ## What are Claude skills?
 
@@ -27,6 +27,7 @@ A skill is a folder with a `SKILL.md` file (a short description plus step-by-ste
 | [`sql-test-data-finder`](sql-test-data-finder) | Writes safe, read-only SQL to find test accounts and records matching a plain-English scenario, plus data-integrity checks | You need a test user or want to verify data after a migration |
 | [`synthetic-test-data-generator`](synthetic-test-data-generator) | Generates realistic but fake users, orders and other entities as CSV, JSON, SQL seed or code fixtures | You need test data without touching real customer data |
 | [`api-contract-diff`](api-contract-diff) | Compares two API contract versions (OpenAPI, JSON samples, HAR) and classifies changes as breaking, risky or safe | An API changed and you need to know what breaks clients |
+| [`sdet-interview-coach`](sdet-interview-coach) | Interview prep coach for testing careers at every level: places you on a level ladder, runs mock interviews, quizzes, coding drills and design rounds grounded in your resume/JD, scores answers and keeps a study plan | You are preparing for a QA, SDET or QA-lead interview |
 
 ## Install
 
@@ -112,6 +113,7 @@ The skill won't trigger automatically there; ask for it by name.
 - **synthetic-test-data-generator**: "Generate 50 fake users with Indian addresses and phone numbers as CSV, including some invalid edge cases."
 - **api-contract-diff**: "Compare the old and new booking API OpenAPI specs and tell me which changes will break existing clients."
 - **universal-project-intelligence-sdet**: "I just joined this repo. Map the architecture and business flows, assess testability, and propose a regression plan."
+- **sdet-interview-coach**: "I have an SDET interview next week. Here is my resume and the JD. Run a mock interview and score my answers."
 
 ## Install a skill
 
